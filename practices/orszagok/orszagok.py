@@ -1,8 +1,10 @@
-file = open("orszagok.csv", "r")
-lines = []
+"""Module to execute some basic programming tasks on dict and list type"""
+
+file = open("orszagok.csv", "r", encoding="UTF8")
+sorok = []
 data = []
-countries = []
-country = {
+orszagok = []
+orszag = {
     "id":"",
     "orszag":"",
     "fovaros":"",
@@ -24,100 +26,103 @@ country = {
 
 for line in file:
     # string.rstrip : cut givet pattern only from the right side
-    lines.append(line.rstrip("\n"))
+    sorok.append(line.rstrip("\n"))
 file.close()
 
 for row in lines:
     data = row.split(";")
     
-    country['id'] = data[0]
-    country['orszag'] = data[1]
-    country['fovaros'] = data[2]
-    country['foldr_hely'] = data[3]
-    country['terulet'] = data[4]
-    country['allamforma'] = data[5]
-    country['nepesseg'] = data[6]
-    country['nep_fovaros'] = data[7]
-    country['autojel'] = data[8]
-    country['country'] = data[9]
-    country['capital'] = data[10]
-    country['penznem'] = data[11]
-    country['penzjel'] = data[12]
-    country['valtopenz'] = data[13]
-    country['telefon'] = data[14]
-    country['gdp'] = data[15]
-    country['kat'] = data[16]
+    orszag['id'] = data[0]
+    orszag['orszag'] = data[1]
+    orszag['fovaros'] = data[2]
+    orszag['foldr_hely'] = data[3]
+    orszag['terulet'] = data[4]
+    orszag['allamforma'] = data[5]
+    orszag['nepesseg'] = data[6]
+    orszag['nep_fovaros'] = data[7]
+    orszag['autojel'] = data[8]
+    orszag['country'] = data[9]
+    orszag['capital'] = data[10]
+    orszag['penznem'] = data[11]
+    orszag['penzjel'] = data[12]
+    orszag['valtopenz'] = data[13]
+    orszag['telefon'] = data[14]
+    orszag['gdp'] = data[15]
+    orszag['kat'] = data[16]
     # append a copy to the list
     # NOTE: cause is the immutability of 
-    countries.append(country.copy())
+    orszagok.append(orszag.copy())
     
     # cleanup
-    for key in country:
-        country[key] = ""
+    for key in orszag:
+        orszag[key] = ""
 
 ################################################################################
 # Tasks
 ################################################################################
 # 1. Mi MADAGASZKÁR fővárosa?
-for country in countries:
-    if country['orszag'] == "MADAGASZKÁR":
-        print("Madagaszkár fővárosa: "+country['fovaros']+"\n")
+for orszag in orszagok:
+    if orszag['orszag'] == "MADAGASZKÁR":
+        print("Madagaszkár fővárosa: "+orszag['fovaros']+"\n")
 
 # 2. Melyik ország fővárosa OUAGADOUGOU?
-for country in countries:
-    if country['fovaros'] == "OUAGADOUGOU":
-        print("OUAGADOUGOU ennek a fővárosa: "+country['orszag']+"\n")
+for orszag in orszagok:
+    if orszag['fovaros'] == "OUAGADOUGOU":
+        print("OUAGADOUGOU ennek a fővárosa: "+orszag['orszag']+"\n")
 
 # 3. Melyik ország autójele a TT?
-for country in countries:
-    if country['autojel'] == "TT":
-        print("A 'TT' ennek az országnak az autójele: "+country['orszag']+"\n")
+for orszag in orszagok:
+    if orszag['autojel'] == "TT":
+        print("A 'TT' ennek az országnak az autójele: "+orszag['orszag']+"\n")
 
 # 4. Melyik ország pénzének jele az SGD?
-for country in countries:
-    if country['penzjel'] == "SGD":
-        print("Az 'SGD' ennek az országnak az pénzjele: "+country['orszag']+"\n")
+for orszag in orszagok:
+    if orszag['penzjel'] == "SGD":
+        print("Az 'SGD' ennek az országnak az pénzjele: "+orszag['orszag']+"\n")
 
 # 5. Melyik ország nemzetközi telefon-hívószáma a 61?
-for country in countries:
-    if country['telefon'] == "61":
-        print("Az '61' ennek az országnak az hívószáma: "+country['orszag']+"\n")
+for orszag in orszagok:
+    if orszag['telefon'] == "61":
+        print("Az '61' ennek az országnak az hívószáma: "+orszag['orszag']+"\n")
 
 # 6. Mekkora területű Monaco?
-for country in countries:
-    if country['orszag'] == "MONACO":
-        print("Monaco területe: "+country['terulet']+"\n")
+for orszag in orszagok:
+    if orszag['orszag'] == "MONACO":
+        print("Monaco területe: "+orszag['terulet']+"\n")
 
 # 7. Hányan laknak Máltán?
-for country in countries:
-    if country['orszag'] == "MÁLTA":
-        print("Málta lakossága: "+str(int(country['nepesseg'])*1000)+" fő.\n")
+for orszag in orszagok:
+    if orszag['orszag'] == "MÁLTA":
+        print("Málta lakossága: "+str(int(orszag['nepesseg'])*1000)+" fő.\n")
 
 # 8. Mennyi Japán népsűrűsége?
-for country in countries:
-    if country['orszag'] == "JAPÁN":
-        print("Japán népsűrűsége: "+str(round(int(country['nepesseg'])*1000 / int(country['terulet']),2)) +" fő/km2\n")
+for orszag in orszagok:
+    if orszag['orszag'] == "JAPÁN":
+        print("Japán népsűrűsége: "+str(round(int(orszag['nepesseg'])*1000 / int(orszag['terulet']),2)) +" fő/km2\n")
 
 # 9. Hány lakosa van a Földnek?
 fold_lakossag = 0
-for country in countries:
-    fold_lakossag += int(country['nepesseg'])
+for orszag in orszagok:
+    fold_lakossag += int(orszag['nepesseg'])
 print ("A Föld lakossága: "+str(fold_lakossag*1000)+" fő.\n")
 
 # 10. Mennyi az országok területe összesen?
 osszes_orszag_terulet = 0
-for country in countries:
-    osszes_orszag_terulet += float(country['terulet'].replace(',','.'))
+for orszag in orszagok:
+    osszes_orszag_terulet += float(orszag['terulet'].replace(',','.'))
 print ("Az összes orszag területe: "+str(round(osszes_orszag_terulet,2))+" km2.\n")
 
 # 11. Mennyi az országok átlagos népessége?
-print ("Az orszagok átlagos népéssége : "+str(round(fold_lakossag / len(countries),2))+" fő.\n")
+print ("Az orszagok átlagos népéssége : "+str(round(fold_lakossag / len(orszagok),2))+" fő.\n")
 
 # 12. Mennyi az országok átlagos területe?
-print ("Az orszagok átlagos területe : "+str(round(osszes_orszag_terulet / len(countries),2))+" km2.\n")
+print ("Az orszagok átlagos területe : "+str(round(osszes_orszag_terulet / len(orszagok),2))+" km2.\n")
 
 # 13. Mennyi a Föld népsűrűsége?
+print ("A Föld népsűrűsége: "+ str(round(fold_lakossag / osszes_orszag_terulet,2)) +" \n")
+
 # 14. Hány 1.000.000 km2-nél nagyobb területű ország van?
+
 # 15. Hány 100 km2-nél kisebb területű ország van?
 # 16. Hány 20.000 főnél kevesebb lakosú ország van?
 # 17. Hány országra igaz, hogy területe kisebb 100 km2-nél, vagy pedig a lakossága kevesebb 20.000 főnél?
