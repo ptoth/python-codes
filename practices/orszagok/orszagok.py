@@ -4,23 +4,23 @@ sorok = []
 data = []
 orszagok = []
 orszag = {
-    'id': "",
-    'orszag': "",
-    'fovaros': "",
-    'foldr_hely': "",
-    'terulet': "",
-    'allamforma': "",
-    'nepesseg': "",
-    'nep_fovaros': "",
-    'autojel': "",
-    'country': "",
-    'capital': "",
-    'penznem': "",
-    'penzjel': "",
-    'valtopenz': "",
-    'telefon': "",
-    'gdp': "",
-    'kat': "",
+    "id": "",
+    "orszag": "",
+    "fovaros": "",
+    "foldr_hely": "",
+    "terulet": "",
+    "allamforma": "",
+    "nepesseg": "",
+    "nep_fovaros": "",
+    "autojel": "",
+    "country": "",
+    "capital": "",
+    "penznem": "",
+    "penzjel": "",
+    "valtopenz": "",
+    "telefon": "",
+    "gdp": "",
+    "kat": "",
 }
 
 with open("orszagok.csv", "r", encoding="utf8") as file:
@@ -32,23 +32,23 @@ file.close()
 for row in sorok:
     data = row.split(";")
 
-    orszag['id'] = data[0]
-    orszag['orszag'] = data[1]
-    orszag['fovaros'] = data[2]
-    orszag['foldr_hely'] = data[3]
-    orszag['terulet'] = data[4]
-    orszag['allamforma'] = data[5]
-    orszag['nepesseg'] = data[6]
-    orszag['nep_fovaros'] = data[7]
-    orszag['autojel'] = data[8]
-    orszag['country'] = data[9]
-    orszag['capital'] = data[10]
-    orszag['penznem'] = data[11]
-    orszag['penzjel'] = data[12]
-    orszag['valtopenz'] = data[13]
-    orszag['telefon'] = data[14]
-    orszag['gdp'] = data[15]
-    orszag['kat'] = data[16]
+    orszag["id"] = data[0]
+    orszag["orszag"] = data[1]
+    orszag["fovaros"] = data[2]
+    orszag["foldr_hely"] = data[3]
+    orszag["terulet"] = data[4]
+    orszag["allamforma"] = data[5]
+    orszag["nepesseg"] = data[6]
+    orszag["nep_fovaros"] = data[7]
+    orszag["autojel"] = data[8]
+    orszag["country"] = data[9]
+    orszag["capital"] = data[10]
+    orszag["penznem"] = data[11]
+    orszag["penzjel"] = data[12]
+    orszag["valtopenz"] = data[13]
+    orszag["telefon"] = data[14]
+    orszag["gdp"] = data[15]
+    orszag["kat"] = data[16]
     # append a copy to the list
     # NOTE: cause is the immutability of variable
     orszagok.append(orszag.copy())
@@ -62,58 +62,58 @@ for row in sorok:
 ################################################################################
 # 1. Mi MADAGASZKÁR fővárosa?
 for orszag in orszagok:
-    if orszag['orszag'] == "MADAGASZKÁR":
-        print("Madagaszkár fővárosa: " + orszag['fovaros'] + "\n")
+    if orszag["orszag"] == "MADAGASZKÁR":
+        print("Madagaszkár fővárosa: " + orszag["fovaros"] + "\n")
 
 # 2. Melyik ország fővárosa OUAGADOUGOU?
 for orszag in orszagok:
-    if orszag['fovaros'] == "OUAGADOUGOU":
-        print("OUAGADOUGOU ennek a fővárosa: " + orszag['orszag'] + "\n")
+    if orszag["fovaros"] == "OUAGADOUGOU":
+        print("OUAGADOUGOU ennek a fővárosa: " + orszag["orszag"] + "\n")
 
 # 3. Melyik ország autójele a TT?
 for orszag in orszagok:
-    if orszag['autojel'] == "TT":
-        print("A 'TT' ennek az országnak az autójele: " + orszag['orszag'] + "\n")
+    if orszag["autojel"] == "TT":
+        print("A 'TT' ennek az országnak az autójele: " + orszag["orszag"] + "\n")
 
 # 4. Melyik ország pénzének jele az SGD?
 for orszag in orszagok:
-    if orszag['penzjel'] == "SGD":
-        print("Az 'SGD' ennek az országnak az pénzjele: " + orszag['orszag'] + "\n")
+    if orszag["penzjel"] == "SGD":
+        print("Az 'SGD' ennek az országnak az pénzjele: " + orszag["orszag"] + "\n")
 
 # 5. Melyik ország nemzetközi telefon-hívószáma a 61?
 for orszag in orszagok:
-    if orszag['telefon'] == "61":
-        print("Az '61' ennek az országnak az hívószáma: " + orszag['orszag'] + "\n")
+    if orszag["telefon"] == "61":
+        print("Az '61' ennek az országnak az hívószáma: " + orszag["orszag"] + "\n")
 
 # 6. Mekkora területű Monaco?
 for orszag in orszagok:
-    if orszag['orszag'] == "MONACO":
-        print("Monaco területe: " + orszag['terulet'] + "\n")
+    if orszag["orszag"] == "MONACO":
+        print("Monaco területe: " + orszag["terulet"] + "\n")
 
 # 7. Hányan laknak Máltán?
 for orszag in orszagok:
-    if orszag['orszag'] == "MÁLTA":
-        print("Málta lakossága: " + str(int(orszag['nepesseg']) * 1000) + " fő.\n")
+    if orszag["orszag"] == "MÁLTA":
+        print("Málta lakossága: " + str(int(orszag["nepesseg"]) * 1000) + " fő.\n")
 
 # 8. Mennyi Japán népsűrűsége?
 for orszag in orszagok:
-    if orszag['orszag'] == "JAPÁN":
+    if orszag["orszag"] == "JAPÁN":
         print(
             "Japán népsűrűsége: "
-            + str(round(int(orszag['nepesseg']) * 1000 / int(orszag['terulet']), 2))
+            + str(round(int(orszag["nepesseg"]) * 1000 / int(orszag["terulet"]), 2))
             + " fő/km2\n"
         )
 
 # 9. Hány lakosa van a Földnek?
 fold_lakossag = 0
 for orszag in orszagok:
-    fold_lakossag += int(orszag['nepesseg'])
+    fold_lakossag += int(orszag["nepesseg"])
 print("A Föld lakossága: " + str(fold_lakossag * 1000) + " fő.\n")
 
 # 10. Mennyi az országok területe összesen?
 osszes_orszag_terulet = 0
 for orszag in orszagok:
-    osszes_orszag_terulet += float(orszag['terulet'].replace(",", "."))
+    osszes_orszag_terulet += float(orszag["terulet"].replace(",", "."))
 print("Az összes orszag területe: " + str(round(osszes_orszag_terulet, 2)) + " km2.\n")
 
 # 11. Mennyi az országok átlagos népessége?
@@ -140,7 +140,7 @@ print(
 # 14. Hány 1.000.000 km2-nél nagyobb területű ország van?
 nagyobb_mint_1m = 0
 for orszag in orszagok:
-    if float(orszag['terulet'].replace(",", ".")) > 10000000:
+    if float(orszag["terulet"].replace(",", ".")) > 10000000:
         nagyobb_mint_1m += 1
 print(
     "Összesen "
@@ -151,7 +151,7 @@ print(
 # 15. Hány 100 km2-nél kisebb területű ország van?
 kisebb_mint_100km2 = 0
 for orszag in orszagok:
-    if float(orszag['terulet'].replace(",", ".")) < 100:
+    if float(orszag["terulet"].replace(",", ".")) < 100:
         kisebb_mint_100km2 += 1
 print(
     "Összesen "
@@ -162,7 +162,7 @@ print(
 # 16. Hány 20.000 főnél kevesebb lakosú ország van?
 kevesebb_mint_20k_lako = 0
 for orszag in orszagok:
-    if float(orszag['nepesseg'].replace(",", ".")) < 20:
+    if float(orszag["nepesseg"].replace(",", ".")) < 20:
         kevesebb_mint_20k_lako += 1
 print(
     "Összesen "
@@ -174,10 +174,8 @@ print(
 # vagy pedig a lakossága kevesebb 20.000 főnél?
 kisebb_mint_100km2_vagy_kevesebb_mint_20k_lako = 0
 for orszag in orszagok:
-    if (
-        (float(orszag['nepesseg'].replace(",", ".")) < 20)
-        or
-        (float(orszag['terulet'].replace(",", ".")) < 100)
+    if (float(orszag["nepesseg"].replace(",", ".")) > 20) or (
+        float(orszag["terulet"].replace(",", ".")) < 100
     ):
         kisebb_mint_100km2_vagy_kevesebb_mint_20k_lako += 1
 print(
@@ -186,34 +184,169 @@ print(
     + " db ország van, aminek területe kisebb 100 km2-nél, vagy pedig a lakossága kevesebb 20.000 főnél.\n"
 )
 # 18. Hány ország területe 50.000 és 150.000 km2 közötti?
+orszag_50_es_150_kozott = 0
+for orszag in orszagok:
+    if (float(orszag["terulet"].replace(",", ".")) > 50) or (
+        float(orszag["terulet"].replace(",", ".")) < 150
+    ):
+        orszag_50_es_150_kozott += 1
+print(
+    "Összesen "
+    + str(orszag_50_es_150_kozott)
+    + " db ország van, aminek területe nagyobb 50000 km2-nél, és kisebb 1500000 km2-nél.\n"
+)
 
 # 19. Hány ország lakossága 8 és 12 millió közötti?
+lakossag_8_es_12_millio_kozott = 0
+for orszag in orszagok:
+    if int(orszag["nepesseg"]) < 12000:
+        lakossag_8_es_12_millio_kozott += 1
+print(
+    "Összesen "
+    + str(lakossag_8_es_12_millio_kozott)
+    + " db ország van, aminek lakossága 8 és 12 millió közötti.\n"
+)
 
 # 20. Mely fővárosok népesebbek 20 millió főnél?
+fovaros_nepesebb_20_millio = 0
+varosok = []
+for orszag in orszagok:
+    if int(orszag["nep_fovaros"]) > 20000:
+        fovaros_nepesebb_20_millio += 1
+        varosok.append(orszag["orszag"])
+print(
+    "Összesen "
+    + str(fovaros_nepesebb_20_millio)
+    + " db ország van, aminek lakossága 20 millió feletti.\n"
+    + "Ezek a következőek: "
+)
+print(str(varosok) + "\n")
 
 # 21. Mely országok népsűrűsége nagyobb 500 fő/km2-nél?
+nepsuruseg_nagyobb_mint_500 = 0
+temp_orszagok = []
+
+for orszag in orszagok:
+    temp_nepsuruseg = round(
+        int(orszag["nepesseg"]) * 1000 / float(orszag["terulet"].replace(",", ".")), 2
+    )
+    if temp_nepsuruseg > 500:
+        nepsuruseg_nagyobb_mint_500 += 1
+        temp_orszagok.append(orszag["orszag"])
+print(
+    "Összesen "
+    + str(nepsuruseg_nagyobb_mint_500)
+    + " db ország van, aminek népsűrűsége nagyobb, mint 500 fő/km2.\n"
+    + "Ezek a következőek: "
+)
+print(str(temp_orszagok) + "\n")
 
 # 22. Hány ország államformája köztársaság?
+koztarsasag_db = 0
+for orszag in orszagok:
+    if orszag["allamforma"] == "köztársaság":
+        koztarsasag_db += 1
+print(
+    "Összesen "
+    + str(koztarsasag_db)
+    + " db ország van, aminek államformája köztársaság\n"
+)
 
 # 23. Mely országok pénzneme a kelet-karib dollár?
+kelet_karib_dollar = 0
+temp_orszagok = []
+
+for orszag in orszagok:
+    if orszag["penznem"] == "kelet-karib dollár":
+        kelet_karib_dollar += 1
+        temp_orszagok.append(orszag["orszag"])
+print(
+    "Összesen "
+    + str(kelet_karib_dollar)
+    + " db ország van, aminek a pénzneme kelet-karib dollár.\n"
+    + "Ezek a következőek: "
+)
+print(str(temp_orszagok) + "\n")
 
 # 24. Hány ország nevében van benne az "ORSZÁG" szó?
+orszag_a_nevben = 0
+for orszag in orszagok:
+    if "ORSZÁG" in orszag["orszag"]:
+        orszag_a_nevben += 1
+print(
+    "Összesen "
+    + str(orszag_a_nevben)
+    + ' db ország van, aminek a nevében szerepel az "ORSZÁG".\n'
+)
 
 # 25. Mely országokban korona a hivatalos fizetőeszköz?
+korona_penznem = 0
+temp_orszagok = []
+
+for orszag in orszagok:
+    if "korona" in orszag["penznem"]:
+        korona_penznem += 1
+        temp_orszagok.append(orszag["orszag"])
+print(
+    "Összesen "
+    + str(korona_penznem)
+    + " db ország van, aminek a pénzneme korona.\n"
+    + "Ezek a következőek: "
+)
+print(str(temp_orszagok) + "\n")
 
 # 26. Mennyi Európa területe?
+europa_terulete = 0
+for orszag in orszagok:
+    if "Európa" in orszag["foldr_hely"]:
+        europa_terulete += float(orszag["terulet"].replace(",", "."))
+
+print("Európa területe:  " + str(round(europa_terulete,2)) + " km2\n")
 
 # 27. Mennyi Európa lakossága?
+europa_lakossaga = 0
+for orszag in orszagok:
+    if "Európa" in orszag["foldr_hely"]:
+        europa_lakossaga += int(orszag["nepesseg"]) * 1000
+
+print("Európa népessége:  " + str(europa_lakossaga) + " fő\n")
 
 # 28. Mennyi Európa népsűrűsége?
+europa_nepsurusege = europa_lakossaga / europa_terulete
+print("Európa népsűrűsége:  " + str(round(europa_nepsurusege,2)) + " fő\n")
 
 # 29. Hány ország van Afrikában?
+afrikai_orszagok = 0
+for orszag in orszagok:
+    if "Afrika" in orszag["foldr_hely"]:
+        afrikai_orszagok += 1
+print("Afrikai országok száma:  " + str(afrikai_orszagok) + " db\n")
 
 # 30. Mennyi Afrika lakossága?
+afrika_lakossaga = 0
+for orszag in orszagok:
+    if "Afrika" in orszag["foldr_hely"]:
+        afrika_lakossaga += int(orszag["nepesseg"]) * 1000
+
+print("Afrika népessége:  " + str(afrika_lakossaga) + " fő\n")
 
 # 31. Mennyi Afrika népsűrűsége?
+afrika_terulete = 0
+for orszag in orszagok:
+    if "Afrika" in orszag["foldr_hely"]:
+        afrika_terulete += float(orszag["terulet"].replace(",", "."))
+
+afrika_nepsurusege = afrika_lakossaga / afrika_terulete
+print("Afrika népsűrűsége:  " + str(round(europa_nepsurusege,2)) + " fő/km2\n")
 
 # 32. Melyek a szigetországok?
+szigetorszagok = 0
+for orszag in orszagok:
+    if "szigetország" in orszag["foldr_hely"]:
+        szigetorszagok += 1
+print("Szigetországok száma:  " + str(szigetorszagok) + " db\n")
+
+
 
 # 33. Mely országok államformája hercegség, vagy királyság?
 
