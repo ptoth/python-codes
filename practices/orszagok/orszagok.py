@@ -346,13 +346,53 @@ for orszag in orszagok:
         szigetorszagok += 1
 print("Szigetországok száma:  " + str(szigetorszagok) + " db\n")
 
-
-
 # 33. Mely országok államformája hercegség, vagy királyság?
+hercegseg_vagy_kiralysag = 0
+temp_orszagok = []
+
+for orszag in orszagok:
+    if ("hercegség" in orszag["allamforma"]) or ("királyság" in orszag["allamforma"]):
+        hercegseg_vagy_kiralysag += 1
+        temp_orszagok.append(orszag["orszag"])
+print(
+    "Összesen "
+    + str(hercegseg_vagy_kiralysag)
+    + " db ország van, aminek államformája hercegség, vagy királyság.\n"
+    + "Ezek a következőek: "
+)
+print(str(temp_orszagok) + "\n")
 
 # 34. Hány országnak nincs autójelzése?
+nincs_autojelzes = 0
+temp_orszagok = []
+
+for orszag in orszagok:
+    if orszag["autojel"] == "":
+        nincs_autojelzes += 1
+        temp_orszagok.append(orszag["orszag"])
+print(
+    "Összesen "
+    + str(hercegseg_vagy_kiralysag)
+    + " db ország van, aminek nincs autójelzése.\n"
+    + "Ezek a következőek: "
+)
+print(str(temp_orszagok) + "\n")
 
 # 35. Mennyi a váltószáma az aprópénznek azokban az országokban, ahol nem 100?
+valtopenz_nem_100 = 0
+temp_orszagok = []
+
+for orszag in orszagok:
+    if ("100 " in orszag["valtopenz"]):
+        valtopenz_nem_100 += 1
+        temp_orszagok.append(orszag["orszag"])
+print(
+    "Összesen "
+    + str(valtopenz_nem_100)
+    + " db ország van, ahol nem 100 az aprópénz váltószáma.\n"
+    + "Ezek a következőek: "
+)
+print(str(temp_orszagok) + "\n")
 
 # 36. Hány ország területe kisebb Magyarországénál?
 
