@@ -17,8 +17,7 @@ if 5 > 2:
 myNumber01 = 10
 myNumber02 = 20
 
-if (myNumber01 > myNumber02):
+if myNumber01 > myNumber02:
     print("First number is greater than the second!")
 else:
     print("Second number is greater than the first!")
-

@@ -21,8 +21,8 @@ bool("abc")
 bool(123)
 bool(["apple", "cherry", "banana"])
 
-# In fact, there are not many values that evaluate to False, except empty values, 
-# such as (), [], {}, "", the number 0, and the value None. 
+# In fact, there are not many values that evaluate to False, except empty values,
+# such as (), [], {}, "", the number 0, and the value None.
 # And of course the value False evaluates to False.
 
 #The following will return False:
